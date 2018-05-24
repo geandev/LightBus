@@ -1,6 +1,7 @@
 ﻿using AspNetCore.Sample.Messages;
 using LightBus.Bus;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace AspNetCore.Sample.Controllers
 {
@@ -15,9 +16,13 @@ namespace AspNetCore.Sample.Controllers
         }
 
         [HttpGet]
-        public string Get()
+        public async Task<string> Get()
         {
-            _lightBus.SendAsync(new SampleMessage()).Wait();
+            await _lightBus.SendAsync(
+                new SampleMessage
+                {
+                    Value = "Hello LightBus"
+                });
             return "Ok";
         }
     }

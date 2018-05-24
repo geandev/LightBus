@@ -9,7 +9,7 @@ namespace AspNetCore.Sample.Handlers
     {
         public Task HandleAsync(SampleMessage message)
         {
-            Debug.WriteLine(nameof(SampleMessage), "Called");
+            Debug.WriteLine(message.Value);
             return Task.CompletedTask;
         }
     }

@@ -2,11 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Description>package to extend IServiceCollection.UseLightBys(), allowing you to register all handlers</Description>
+    <Description>package to extend IServiceCollection.UseLightBus(), allowing you to register all handlers</Description>
     <PackageLicenseUrl></PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/GeanAlexandre/LightBus</PackageProjectUrl>
     <RepositoryUrl>https://github.com/GeanAlexandre/LightBus</RepositoryUrl>
     <PackageReleaseNotes>LightBus, Dependecy Injection, IoC</PackageReleaseNotes>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
