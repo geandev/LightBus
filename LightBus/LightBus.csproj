@@ -3,6 +3,12 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>LightBus.Core</PackageId>
+    <Description>Simple bus implementation in .NET
+for messaging with no dependencies.</Description>
+    <PackageProjectUrl>https://github.com/GeanAlexandre/LightBus</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/GeanAlexandre/LightBus</RepositoryUrl>
+    <PackageTags>Bus, Event Sourcing, Messaging</PackageTags>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
 </Project>
