@@ -5,7 +5,7 @@ namespace LightBus.Microsoft.DependencyInjection
 {
     public static class LightBusExtension
     {
-        public static void UseLightBus(this IServiceCollection services)
+        public static void AddLightBus(this IServiceCollection services)
         {
             services.AddScoped<ILightBus, LightBus>();
             services.AddScoped<IMessageHandlerResolver, MessageHandlerResolver>();

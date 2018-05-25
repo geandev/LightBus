@@ -10,7 +10,7 @@ namespace AspNetCore.Sample
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvcCore();
-            services.UseLightBus();
+            services.AddLightBus();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

@@ -28,7 +28,7 @@ just using the sintax below.
 public void ConfigureServices(IServiceCollection services)
 {
     ...
-    services.UseLightBus();
+    services.AddLightBus();
     ...
 }
 ```
