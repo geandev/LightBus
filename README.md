@@ -42,7 +42,7 @@ To create a message is very simple, you just need a class and implement ```IMess
 ```CSharp
 public class SampleMessage : IMessage
 {
-        public string Value { get; set; }
+    public string Value { get; set; }
 }
 ```
 
@@ -63,7 +63,7 @@ public class SampleMessageHandler : IMessageHandler<SampleMessage>
 
 ### Sending Message
 
-to trigger a message you will need to inject the ```ILightBus``` Interface and use ```SendAsync<TMessage>(TMessage)``` to dispatch a message like below
+to trigger a message you will need to inject the ```ILightBus``` Interface and use ```PushAsync<TMessage>(TMessage)``` to dispatch a message like below
 
 ```CSharp
 [Route("")]
@@ -79,10 +79,60 @@ public class ValuesController : Controller
     [HttpGet]
     public async Task<string> Get()
     {
-        await _lightBus.SendAsync(
+        await _lightBus.PushAsync(
             new SampleMessage { Value = "Hello LightBus" });
 
         return "Ok";
+    }
+}
+```
+
+## Creating Message and Handlers With Response
+
+### Message Response
+
+To create a message is very simple, you just need a class and implement ```IMessage<out Response>``` Interface like below
+
+```CSharp
+public class SampleMessageResponse : IMessage<string>
+{
+    public string Value { get; set; }
+}
+```
+
+### MessageHandlerResponse
+
+Like a Message, you just need a class and implement: ```IMessageHandler<TMessage, TResponse> where TMessage: IMessage<TResponse>``` Interface like below
+
+```CSharp
+public class SampleMessageHandler : IMessageHandler<SampleMessageResponse, string>
+{
+    public Task<string> HandleAsync(SampleMessageResponse message)
+    {
+        return Task.FromResult($"Hello {message.Value}");
+    }
+}
+```
+
+### Sending Message With Response
+
+to trigger a message you will need to inject the ```ILightBus``` Interface and use ```Task<TResponse> SendAsync<TMessage, TResponse>(Action<TMessage> messageHandler = null)``` to dispatch a message like below
+
+```CSharp
+[Route("")]
+public class ValuesController : Controller
+{
+    private readonly ILightBus _lightBus;
+
+    public ValuesController(ILightBus lightBus)
+    {
+        _lightBus = lightBus;
+    }
+
+    [HttpGet]
+    public async Task<string> Get()
+    {
+        await _lightBus.SendAsync<SampleMessageResponse, string>(msg => msg.Value = "LightBus");
     }
 }
 ```
