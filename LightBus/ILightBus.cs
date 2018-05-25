@@ -1,10 +1,14 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 
 namespace LightBus.Bus
 {
     public interface ILightBus
     {
-        Task SendAsync<TMessage>(TMessage message)
-        where TMessage : IMessage;
+        Task PushAsync<TMessage>(TMessage message)
+            where TMessage : IMessage;
+
+        Task<TResponse> SendAsync<TMessage, TResponse>(Action<TMessage> messageHandler = null)
+            where TMessage : IMessage<TResponse>, new();
     }
 }

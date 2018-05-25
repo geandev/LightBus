@@ -17,5 +17,11 @@ namespace LightBus.Microsoft.DependencyInjection
         {
             return _services.GetServices<IMessageHandler<TMessage>>();
         }
+
+        public IMessageHandler<TMessage, TResponse> GetMessageHandler<TMessage, TResponse>()
+            where TMessage : IMessage<TResponse>, new()
+        {
+            return _services.GetService<IMessageHandler<TMessage, TResponse>>();
+        }
     }
 }

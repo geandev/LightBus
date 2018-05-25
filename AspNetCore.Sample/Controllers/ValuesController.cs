@@ -18,12 +18,8 @@ namespace AspNetCore.Sample.Controllers
         [HttpGet]
         public async Task<string> Get()
         {
-            await _lightBus.SendAsync(
-                new SampleMessage
-                {
-                    Value = "Hello LightBus"
-                });
-            return "Ok";
+            await _lightBus.PushAsync(new SampleMessage { Value = "Hello LightBus" });
+            return await _lightBus.SendAsync<SampleMessageResponse, string>(msg => msg.Value = "LightBus");
         }
     }
 }

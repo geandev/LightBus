@@ -16,14 +16,17 @@ namespace LightBus
             entryPointAssembly
             .GetTypes()
             .Union(referenceAssemblies.SelectMany(a => a.GetTypes()))
-            .Where(t => t.GetInterface(typeof(IMessageHandler<>).Name) != null)
+            .Where(t => isMessageHandler(t) || isMessageHandlerWithResponse(t))
             .Select(t => new
             {
-                abstraction = t.GetInterface(typeof(IMessageHandler<>).Name),
+                abstraction = isMessageHandler(t) ? t.GetInterface(typeof(IMessageHandler<>).Name) : t.GetInterface(typeof(IMessageHandler<,>).Name),
                 implementation = t
             })
             .ToList()
             .ForEach(handler => resolver?.Invoke(handler.abstraction, handler.implementation));
+
+            bool isMessageHandler(Type type) => type.GetInterface(typeof(IMessageHandler<>).Name) != null;
+            bool isMessageHandlerWithResponse(Type type) => type.GetInterface(typeof(IMessageHandler<,>).Name) != null;
         }
     }
 }
