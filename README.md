@@ -1,3 +1,8 @@
+LighBus
+=======
+
+LightBus and a simple implementation for sending asynchronous messages oneway or with return for .NET applications.
+
 # Installation
 
 The library is available via [NuGet](https://www.nuget.org/packages?q=LightBus.Core) packages:

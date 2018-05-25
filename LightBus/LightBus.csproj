@@ -9,7 +9,7 @@ for messaging with no dependencies.</Description>
     <RepositoryUrl>https://github.com/GeanAlexandre/LightBus</RepositoryUrl>
     <PackageTags>Bus, Event Sourcing, Messaging</PackageTags>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <Version>1.0.1</Version>
+    <Version>1.0.3</Version>
   </PropertyGroup>
 
 </Project>
