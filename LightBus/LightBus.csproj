@@ -4,12 +4,12 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>LightBus.Core</PackageId>
     <Description>Simple bus implementation in .NET
-for messaging with no dependencies.</Description>
-    <PackageProjectUrl>https://github.com/GeanAlexandre/LightBus</PackageProjectUrl>
+for messaging with no dependencies, if you are using aspnet core use LightBus.Microsoft.DependencyInjection to register the handlers automatic</Description>
+    <PackageProjectUrl>https://geanalexandre.github.io/LightBus/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/GeanAlexandre/LightBus</RepositoryUrl>
     <PackageTags>Bus, Event Sourcing, Messaging</PackageTags>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <Version>1.0.3</Version>
+    <Version>1.0.4</Version>
   </PropertyGroup>
 
 </Project>

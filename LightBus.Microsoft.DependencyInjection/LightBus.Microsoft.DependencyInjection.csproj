@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Description>package to extend IServiceCollection.UseLightBus(), allowing you to register all handlers</Description>
+    <Description>package to extend IServiceCollection.AddLightBus(), allowing you to register all handlers</Description>
     <PackageLicenseUrl></PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/GeanAlexandre/LightBus</PackageProjectUrl>
     <RepositoryUrl>https://github.com/GeanAlexandre/LightBus</RepositoryUrl>

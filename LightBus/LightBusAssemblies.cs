@@ -16,6 +16,7 @@ namespace LightBus
             entryPointAssembly
             .GetTypes()
             .Union(referenceAssemblies.SelectMany(a => a.GetTypes()))
+            .Where(t => !t.IsAbstract)
             .Where(t => isMessageHandler(t) || isMessageHandlerWithResponse(t))
             .Select(t => new
             {

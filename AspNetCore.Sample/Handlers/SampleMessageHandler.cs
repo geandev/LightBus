@@ -5,7 +5,7 @@ using LightBus;
 
 namespace AspNetCore.Sample.Handlers
 {
-    public class SampleMessageHandler : IMessageHandler<SampleMessage>
+    public class SampleMessageHandler : IHandler<SampleMessage>
     {
         public Task HandleAsync(SampleMessage message)
         {

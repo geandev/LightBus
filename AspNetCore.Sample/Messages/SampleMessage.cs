@@ -1,8 +1,6 @@
-﻿using LightBus;
-
-namespace AspNetCore.Sample.Messages
+﻿namespace AspNetCore.Sample.Messages
 {
-    public class SampleMessage : IMessage
+    public class SampleMessage : IMessageBase
     {
         public string Value { get; set; }
     }
