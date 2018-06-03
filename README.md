@@ -1,7 +1,7 @@
 LighBus
 =======
 
-LightBus and a simple implementation for sending asynchronous messages oneway or with return for .NET applications.
+LightBus is a simple implementation for sending asynchronous messages oneway or with return for .NET applications.
 
 # Installation
 
